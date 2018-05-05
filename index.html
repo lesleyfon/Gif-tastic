@@ -26,12 +26,13 @@
     
   </form> <br>
 
-  <div id>
+  <!-- <div id>
     <button data-cartoons="Pheneas and Ferb"> Pheneas and Ferb</button>
     <button data-cartoons="Tom and jerry"> Tom and jerry</button>
     <button data-cartoons="bucks bunny">bucks bunny</button>
     
-  </div><br>
+  </div><br> -->
+  <div id="generateButtons"></div>
   <div id="animation"></div>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -43,7 +44,7 @@
 
     var APIKey = "9jF2XhQb3TvhqcwEDbVMWaVedsnnxr53";
 // '#add-cartoon',
-    $('button').click(function(e) {
+    $(document).on("click", ".cartoon-buttons", function(e) {
       e.preventDefault();
 
       var cartoonDataFromForm = $(this).attr('data-cartoons');
@@ -65,6 +66,7 @@
           url: queryURL,
           method: "GET",
           }).then(function(response) {
+            $("#animation").empty()
             var comics = response.data
             console.log(comics)
             for (var i=0; i<comics.length; i++){
@@ -76,6 +78,44 @@
            
         })
     }
+    function renderButtons(){
+      console.log(cartoons)
+      $("#generateButtons").empty();
+       // Loops through the array of movies
+       for (var i=0; i<cartoons.length; i++){
+        // Then dynamicaly generates buttons for each movie in the array
+        // This code $("<button>") is all jQuery needs to create the beginning and end tag. (<button></button>)
+        var a =$("<button>");
+        // add a class to the button
+        a.addClass("btns");
+        a.addClass("cartoon-buttons")
+        // Added a data-attribute
+       a.attr("data-cartoons", cartoons[i]);
+      // Provided the initial button text
+       a.text(cartoons[i]);
+       // Added the button to the buttons-view div
+       $("#generateButtons").append(a);
+
+      }
+    
+    }
+   
+     
+      $("#add-cartoon").on("click", function(event){
+      event.preventDefault();
+
+      // This line of code will grab the input from the textbox
+      var cartoon = $("#cartoon-input").val().trim();
+      console.log(cartoon)
+     // The movie from the textbox is then added to our array
+      cartoons.push(cartoon);
+       // Calling renderButtons which handles the processing of our movie array
+       renderButtons();
+      
+    });
+    $(document).on("click", ".btn",  displayGif );
+
+    renderButtons();
 
 
     })
