@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <title>Page Title</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css" /> -->
+
+</head>
+
+<body>
+  <div id="animation"></div>
+  <form id="cartoon-form">
+    <label for="cartoon-input">Submit</label>
+    <input type="text" id="cartoon-input">
+    <br>
+
+    <!-- Button triggers new Cartoons to be added -->
+    <input id="add-cartoon" type="submit" data-cartoons="Rick and Morty" value="Add a Cartoon">
+  </form>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script>
+    var cartoos = ["Pheneas and Ferb", "Tom and jerry", "bucks bunny"];
+
+  // $(document).ready(function() {
+
+
+    var APIKey = "9jF2XhQb3TvhqcwEDbVMWaVedsnnxr53";
+
+    $('#add-cartoon').click(function(e) {
+      e.preventDefault();
+
+      var cartoonDataFromForm = $(this).attr('data-cartoons');
+
+      console.log(cartoonDataFromForm);
+
+      displayGif(cartoonDataFromForm);
+    })
+
+    
+    function displayGif(chicken) {
+
+      var cartoons = $(this).attr("data-cartoons");
+      var queryURL = "https://api.giphy.com/v1/gifs/search?q=" +
+        chicken + "&api_key=" + APIKey;
+
+        // create an ajax call
+        $.ajax({
+          url: queryURL,
+          method: "GET",
+          }).then(function(response) {
+          // var comics = $("#animation")
+          console.log(response);
+          //   animation.empty()
+
+
+        })
+
+    }
+
+    // })
+
+
+    </script>
+
+    <!-- <script src="assets/javascript/app.js"></script> -->
+  </body>
+
+
+</html>
