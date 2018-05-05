@@ -10,26 +10,40 @@
 </head>
 
 <body>
-  <div id="animation"></div>
+ 
+  
+ 
   <form id="cartoon-form">
     <label for="cartoon-input">Submit</label>
     <input type="text" id="cartoon-input">
-    <br>
+    <br><br>
 
     <!-- Button triggers new Cartoons to be added -->
-    <input id="add-cartoon" type="submit" data-cartoons="Rick and Morty" value="Add a Cartoon">
-  </form>
+     <input id="add-cartoon" type="submit" data-cartoons="bucks bunny" value="Add a button">
+     
+      
+    
+    
+  </form> <br>
+
+  <div id>
+    <button data-cartoons="Pheneas and Ferb"> Pheneas and Ferb</button>
+    <button data-cartoons="Tom and jerry"> Tom and jerry</button>
+    <button data-cartoons="bucks bunny">bucks bunny</button>
+    
+  </div><br>
+  <div id="animation"></div>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script>
-    var cartoos = ["Pheneas and Ferb", "Tom and jerry", "bucks bunny"];
+    var cartoons = ["Pheneas and Ferb", "Tom and jerry", "bucks bunny"];
 
-  // $(document).ready(function() {
+  $(document).ready(function() {
 
 
     var APIKey = "9jF2XhQb3TvhqcwEDbVMWaVedsnnxr53";
-
-    $('#add-cartoon').click(function(e) {
+// '#add-cartoon',
+    $('button').click(function(e) {
       e.preventDefault();
 
       var cartoonDataFromForm = $(this).attr('data-cartoons');
@@ -44,23 +58,27 @@
 
       var cartoons = $(this).attr("data-cartoons");
       var queryURL = "https://api.giphy.com/v1/gifs/search?q=" +
-        chicken + "&api_key=" + APIKey;
+        chicken + "&api_key=" + APIKey + "&limit=10";
 
         // create an ajax call
         $.ajax({
           url: queryURL,
           method: "GET",
           }).then(function(response) {
-          // var comics = $("#animation")
-          console.log(response);
-          //   animation.empty()
+            var comics = response.data
+            console.log(comics)
+            for (var i=0; i<comics.length; i++){
+              var gifImage= $("<img>");
+              gifImage.attr('src', comics[i].images.downsized_medium.url)
+              $("#animation").append(gifImage);
 
-
+            }
+           
         })
-
     }
 
-    // })
+
+    })
 
 
     </script>
