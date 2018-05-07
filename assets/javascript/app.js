@@ -1,4 +1,4 @@
-var cartoons = ["Pheneas and Ferb", "Tom and jerry", "bucks bunny"];
+var cartoons = ["Pheneas and Ferb", "Tom and jerry", " Kung Fu Panda "];
 
 $(document).ready(function() {
 
@@ -38,6 +38,7 @@ $(document).ready(function() {
             gifImage.attr("class", "gif");
 
             gifImage.attr("data-animate", comics[i].images.downsized.url )
+            gifImage.addClass("gif")
             $("#animation").append(gifImage);
 
           }

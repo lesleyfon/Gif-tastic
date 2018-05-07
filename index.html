@@ -5,30 +5,94 @@
   <meta charset="utf-8" />
   <title>Page Title</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css" /> -->
+  <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css" />
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
 
+  <style>
+    body{
+      background: url("https://images7.alphacoders.com/342/342341.jpg");
+      margin-left: 100px;
+    }
+   .container{
+     width:90%;  
+     margin-left: 20px;
+   }
+   .gif{
+    max-width: 300px;
+    margin: 5px;
+    width: 300px;
+    border-radius: 1000px;
+    height: 250px
+  
+   }
+   .row{
+     margin-top: 10px;
+   }
+
+   button,
+      #generateButtons {
+          display: inline-block;
+          text-decoration: none;
+          font-family: 'Ubuntu', sans-serif;
+          color: #fff;
+          font-size: 20px;
+          margin: 8px;
+          -ms-transform: scale(0.9);
+          -webkit-transform: scale(0.9);
+          transform: scale(0.9);
+          transition: transform 0.2s cubic-bezier(0.34, 1.65, 0.88, 0.925) 0s;
+          outline: 0;
+    }
+
+     button:hover,
+      a:hover {
+    -ms-transform: rotate(0deg) scale(1.2);
+    -webkit-transform: rotate(0deg) scale(1.2);
+    transform: rotate(0deg) scale(1.2);
+}
+
+
+  </style>
 </head>
 
 <body>
+    <header>
+        <!-- <div class="container"> -->
+            <div class="row">
+              <div class="col-sm-9">
+                  <div id="generateButtons"></div>
+                  
+              </div>
+              <div class="col-sm-3">
+                  <form id="cartoon-form">
+                      <label for="cartoon-input">Submit</label>
+                      <input type="text" id="cartoon-input">
+                      <br>
+                      <br>
+                  
+                      <!-- Button triggers new Cartoons to be added -->
+                      <input class="btn btn-primary" id="add-cartoon"  type="submit"  data-cartoons="bucks bunny" value="Add a button">
 
+                      <!-- <input id="add-cartoon" type="submit" data-cartoons="bucks bunny" value="Add a button"> -->
+                  
+                  
+                    </form>
+              </div>
+            </div>
+        </div>
+    </header>
 
+    <div class="row">
+      <div class="col-9" id="animation"></div>
+      <div class="col-3"></div>
+    </div
 
-  <form id="cartoon-form">
-    <label for="cartoon-input">Submit</label>
-    <input type="text" id="cartoon-input">
-    <br>
-    <br>
-
-    <!-- Button triggers new Cartoons to be added -->
-    <input id="add-cartoon" type="submit" data-cartoons="bucks bunny" value="Add a button">
-
-
-  </form>
+    
+  
   <br>
 
 
-  <div id="generateButtons"></div>
-  <div id="animation"></div>
+  
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
