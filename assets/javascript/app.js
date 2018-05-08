@@ -41,15 +41,17 @@ $(document).ready(function() {
             gifImage.attr("data-animate", comics[i].images.downsized.url );
             $("#animation").append(gifImage);
 
-            // var wrapper=$("<div>");
-            // wrapper.addClass("ratingNgif")
-            // wrapper.append(gifImage);
-            // var ratingText=$("<p>");
-            // ratingText.text(response.comics[i].rating);
-            // wrapper.append(ratingText);
-            // $("#animation").append(wrapper)
+            var wrapper=$("<div>");
+            wrapper.addClass("ratingNgif float-left position-relative") 
+            wrapper.append(gifImage);
+            var ratingText=$("<p>");
+            ratingText.addClass("gifRating")
+            
+            ratingText.text(comics[i].rating);
+            wrapper.append(ratingText);
+            $("#animation").append(wrapper)
             //  $(wrapper).append();
-            // //  console.log(wrapper)
+            //  console.log(wrapper)
 
           }
          
