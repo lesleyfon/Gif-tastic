@@ -30,6 +30,7 @@ $(document).ready(function() {
           $("#animation").empty()
           var comics = response.data
           console.log(comics)
+          var wrapper=$("<div>")
           for (var i=0; i<comics.length; i++){
             var gifImage= $("<img>");
             gifImage.attr('src', comics[i].images.downsized_still.url)
@@ -38,10 +39,10 @@ $(document).ready(function() {
             gifImage.attr("class", "gif");
 
             gifImage.attr("data-animate", comics[i].images.downsized.url )
-            gifImage.addClass("gif")
+            // gifImage.addClass("gif")
             $("#animation").append(gifImage);
 
-          }
+          }0.
          
       })
   }
@@ -97,4 +98,3 @@ $(document).ready(function() {
 
 
   })
-
