@@ -10,7 +10,7 @@ $(document).ready(function() {
 
     var cartoonDataFromForm = $(this).attr('data-cartoons');
 
-    console.log(cartoonDataFromForm);
+    // console.log(cartoonDataFromForm);
 
     displayGif(cartoonDataFromForm);
   })
@@ -29,25 +29,34 @@ $(document).ready(function() {
         }).then(function(response) {
           $("#animation").empty()
           var comics = response.data
-          console.log(comics)
-          var wrapper=$("<div>")
+          // console.log(comics)
           for (var i=0; i<comics.length; i++){
             var gifImage= $("<img>");
-            gifImage.attr('src', comics[i].images.downsized_still.url)
+           
+            gifImage.attr('src', comics[i].images.downsized_still.url);
             gifImage.attr("data-still", comics[i].images.downsized_still.url);
-            gifImage.attr("data-state", "still")
+            gifImage.attr("data-state", "still");
             gifImage.attr("class", "gif");
 
-            gifImage.attr("data-animate", comics[i].images.downsized.url )
-            // gifImage.addClass("gif")
+            gifImage.attr("data-animate", comics[i].images.downsized.url );
             $("#animation").append(gifImage);
 
-          }0.
+            // var wrapper=$("<div>");
+            // wrapper.addClass("ratingNgif")
+            // wrapper.append(gifImage);
+            // var ratingText=$("<p>");
+            // ratingText.text(response.comics[i].rating);
+            // wrapper.append(ratingText);
+            // $("#animation").append(wrapper)
+            //  $(wrapper).append();
+            // //  console.log(wrapper)
+
+          }
          
       })
   }
   function renderButtons(){
-    console.log(cartoons)
+    // console.log(cartoons)
     $("#generateButtons").empty();
      // Loops through the array of movies
      for (var i=0; i<cartoons.length; i++){
@@ -70,7 +79,7 @@ $(document).ready(function() {
  
    $(document).on("click", ".gif", function(){
      var state=$(this).attr("data-state");
-     console.log(state)
+    //  console.log(state)
      if(state==="still"){
       
        $(this).attr("src", $(this).attr("data-animate"));
@@ -85,7 +94,7 @@ $(document).ready(function() {
 
     // This line of code will grab the input from the textbox
     var cartoon = $("#cartoon-input").val().trim();
-    console.log(cartoon)
+    // console.log(cartoon)
    // The movie from the textbox is then added to our array
     cartoons.push(cartoon);
      // Calling renderButtons which handles the processing of our movie array
