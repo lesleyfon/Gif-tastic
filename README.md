@@ -4,6 +4,7 @@
 
 * Use of jQuery, Javascript, Giphy API, HTML, and CSS
 * Dynamically creating webpages
+  The GIPHY API will be used to make a dynamic web page that populates gifs of your choice. To finish this task, you must call the GIPHY API and use JavaScript and jQuery to change the HTML of your site.
 
 ## Instructions
 
@@ -13,8 +14,7 @@
 * Type in search to create a button and see corresponding gifs!
 * Search for any gif you want to want on the search bar and click it to animate
 
-# Project Name: GifTastic
-Description: The GIPHY API will be used to make a dynamic web page that populates gifs of your choice. To finish this task, you must call the GIPHY API and use JavaScript and jQuery to change the HTML of your site.
+
 
 # Instructions
 1) When the user clicks on a button, the page should grab 10 static, non-animated gif images from the GIPHY API and place them on the page.
